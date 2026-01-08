@@ -14,7 +14,24 @@ Open: http://localhost:5000
 ```bash
 docker build -t flask-app . && docker run -p 5000:5000 flask-app
 ```
-
+```
+sudo docker buildx build \
+  --platform linux/amd64 \
+  -t atuljkamble/the-devops-project:latest \
+  --load .
+```
+### Update Cluster Config 
+```
+aws eks update-kubeconfig \
+  --name mycluster \
+  --region us-east-1
+```
+## Delete Cluster 
+```
+eksctl delete cluster \
+  --name mycluster \
+  --region us-east-1
+```
 ### Kubernetes (EKS)
 ```bash
 # Create cluster
